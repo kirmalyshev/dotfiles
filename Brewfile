@@ -20,6 +20,7 @@ brew "libmagic"
 brew "libmemcached"
 brew "lighttpd"
 brew "lnav"
+brew "mas"
 brew "midnight-commander"
 brew "netcat"
 brew "nvm"
@@ -40,6 +41,11 @@ brew "zplug"
 brew "minio/stable/minio"
 cask "ngrok"
 cask "raycast"
+mas "Bitwarden", id: 1352778147
+mas "Endel", id: 1346247457
+mas "Kindle", id: 302584613
+mas "Outline", id: 1356178125
+mas "WhatsApp", id: 310633997
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"
