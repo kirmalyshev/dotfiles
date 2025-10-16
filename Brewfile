@@ -11,6 +11,7 @@ brew "codex"
 brew "colima", restart_service: :changed
 brew "docker"
 brew "docker-compose"
+brew "fzf"
 brew "gh"
 brew "git"
 brew "git-lfs"
