@@ -31,8 +31,30 @@ HIST_IGNORE_SPACE='true'
 # Add wisely, as too many plugins slow down shell startup.
 
 plugins=(
+  aliases
+  brew
+  colored-man-pages
+  colorize
+  cp
+  docker docker-compose
+  dotenv
+  git
   gitfast
   gh
+  github
+  golang
+  helm
+  history
+  iterm2
+  macos
+  node
+  pip
+  poetry
+  pyenv
+  python
+  ssh
+  sublime
+  wd
 )
 
 # Sourcing the Oh-My-ZSH source:
@@ -40,13 +62,6 @@ source "$ZSH/oh-my-zsh.sh"
 
 # This PATH needs to be set before all other modifications:
 export PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
-
-
-# === Plugin management ===
-
-ZPLUG_HOME='/opt/homebrew/opt/zplug'
-export ZPLUG_HOME
-source "$HOME/.zplugrc"
 
 
 # === Shell parts ===

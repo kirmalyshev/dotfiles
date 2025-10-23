@@ -1,4 +1,8 @@
 tap "koekeishiya/formulae"
+tap "homebrew/services"
+
+brew "aichat"
+
 # C/C++ resolver library and DNS resolver utilities
 brew "adns"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -13,6 +17,8 @@ brew "catimg"
 brew "certifi"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+
+brew "cmake"
 # Reimplementation of ctags(1)
 brew "ctags"
 # Cryptography and SSL/TLS Toolkit
@@ -25,15 +31,13 @@ brew "rtmpdump"
 brew "xz"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+brew "docker"
+brew "docker-compose"
 # Clean Docker containers, images, networks, and volumes
 brew "docker-clean"
 # ODBC 3 connectivity for UNIX
 brew "unixodbc"
-# Programming language for highly scalable real-time systems
-brew "erlang"
-# Functional metaprogramming aware language built on Erlang VM
-brew "elixir"
-# Simple, fast and user-friendly alternative to find
+
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
@@ -43,8 +47,13 @@ brew "gh"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+
+brew "git-lfs"
 # Core application library for C
 brew "glib"
+
+brew "htop"
+
 # Asynchronous event library
 brew "libevent"
 # International domain name library (IDNA2008, Punycode and TR46)
@@ -81,8 +90,15 @@ brew "jq"
 brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
+
+brew "midnight-commander"
+
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+
+cask "ngrok"
+cask "raycast"
+
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple Node.js versions
@@ -95,14 +111,6 @@ brew "pipx"
 brew "pkgconf"
 # Python version management
 brew "pyenv"
-# Install various Ruby versions and implementations
-brew "ruby-build"
-# Ruby version manager
-brew "rbenv"
-# Powerful, clean, object-oriented scripting language
-brew "ruby"
-# Rust toolchain installer
-brew "rustup"
 # Intuitive find & replace CLI
 brew "sd"
 # Static analysis and lint tool, for (ba)sh scripts
@@ -121,16 +129,8 @@ brew "zplug"
 brew "zsh"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
-# VPN client
-cask "amneziavpn"
-# Voice and text chat software
-cask "discord"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
-# Control your Elgato key lights
-cask "elgato-control-center"
-# Assign keys, and then decorate and label them
-cask "elgato-stream-deck"
 # Web browser
 cask "firefox"
 # Screen colour temperature controller
@@ -145,12 +145,6 @@ cask "hyper"
 cask "keyboard-cleaner"
 # Open-source keystroke visualiser
 cask "keycastr"
-# Support for Logitech G gear
-cask "logitech-g-hub"
-# Clipboard manager
-cask "maccy"
-# Open-source software for live streaming and screen recording
-cask "obs"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Quicklook extension for source files
@@ -161,8 +155,6 @@ cask "telegram"
 cask "topnotch"
 # Open-source code editor
 cask "visual-studio-code"
-# Tune in to Yandex Music and get personal recommendations
-cask "yandex-music"
 # Gecko based web browser
 cask "zen"
 # Video communication and virtual meeting platform
@@ -171,11 +163,14 @@ mas "Delete Apps", id: 1033808943
 mas "Enpass", id: 732710998
 mas "G Authenticator App", id: 6479869138
 mas "HazeOver", id: 430798174
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
+mas "Endel", id: 1346247457
+mas "Kindle", id: 302584613
+mas "Outline", id: 1356178125
+mas "WhatsApp", id: 310633997
 vscode "editorconfig.editorconfig"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
@@ -183,3 +178,6 @@ vscode "ms-vscode.cpptools"
 vscode "sobolevn.pustota"
 vscode "subframe7536.custom-ui-style"
 vscode "teabyii.ayu"
+go "golang.org/x/tools/gopls"
+go "honnef.co/go/tools/cmd/staticcheck"
+go "github.com/wailsapp/wails/v2/cmd/wails"

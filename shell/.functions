@@ -13,9 +13,9 @@ pyclean () {
 }
 
 
-mc () {
+mcdir () {
   if [ $# -ne 1 ]; then
-    echo 'usage: mc <dir-name>'
+    echo 'usage: mcdir <dir-name>'
     return 137
   fi
   # Create a new directory and enter it

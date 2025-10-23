@@ -17,6 +17,9 @@ alias afk='pmset displaysleepnow'
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
+# Copy current branch name to clipboard
+alias gbcp='git rev-parse --abbrev-ref HEAD | pbcopy'
+
 # Find WiFi password, add the name:
 alias wifi_pass='security find-generic-password -wa'
 

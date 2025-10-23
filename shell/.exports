@@ -75,12 +75,6 @@ fi
 # pyenv:
 eval "$(pyenv init --path)"
 
-# rbenv:
-eval "$(rbenv init -)"
-
-# rustup:
-source "$HOME/.cargo/env"
-
 
 # === Poetry ===
 # https://python-poetry.org/docs/configuration/
