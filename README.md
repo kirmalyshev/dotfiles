@@ -1,6 +1,6 @@
-# sobolevn's dotfiles
+# kirmalyshev's dotfiles
 
-![sobolevn's dotfiles](https://raw.githubusercontent.com/sobolevn/dotfiles/master/media/hyper.png)
+
 
 Here are some articles I wrote about my environment:
 
@@ -18,9 +18,9 @@ And talks / podcasts:
 
 What's in there?
 
-- all my `brew` dependencies including: applications, fonts, etc. See [`Brewfile`](https://github.com/sobolevn/dotfiles/blob/master/Brewfile)
-- all my `macOS` configuration. See [`macos`](https://github.com/sobolevn/dotfiles/blob/master/macos/)
-- all my shell configuration, including [my own `sobole`](https://github.com/sobolevn/sobole-zsh-theme) theme. See [`shell/`](https://github.com/sobolevn/dotfiles/tree/master/shell) and [`config/zshrc`](https://github.com/sobolevn/dotfiles/blob/master/config/zshrc)
+- all my `brew` dependencies including: applications, fonts, etc. See [`Brewfile`](https://github.com/kirmalyshev/dotfiles/blob/master/Brewfile)
+- all my `macOS` configuration. See [`macos`](https://github.com/kirmalyshev/dotfiles/blob/master/macos/)
+- all my shell configuration, including [sobolevn's `sobole`](https://github.com/kirmalyshev/sobole-zsh-theme) theme. See [`shell/`](https://github.com/kirmalyshev/dotfiles/tree/master/shell) and [`config/zshrc`](https://github.com/kirmalyshev/dotfiles/blob/master/config/zshrc)
 - all my `vscode` configuration, including [my own `pustota`](https://github.com/sobolevn/pustota) theme. See [`vscode/`](https://github.com/sobolevn/dotfiles/tree/master/vscode)
 - all my `firefox` (and Zen) settings. See [`firefox/`](https://github.com/sobolevn/dotfiles/tree/master/firefox)
 - all my [QuickLook](https://github.com/sindresorhus/quick-look-plugins) customizations and [dev utilities](https://github.com/sbarex/SourceCodeSyntaxHighlight)
@@ -49,13 +49,7 @@ to set things up. Steps:
 
 ## VSCode
 
-I loved [my `Sublime`](https://github.com/sobolevn/dotfiles/tree/34ee628e515f7fc782566b946a3b4ca906bad7ba/sublime3-conf).
-It was fast and beautiful.
-The main reason is that `Sublime` is almost unmaintained.
-Packages are also abandoned.
-
 So, I have switched to [`vscode`](https://formulae.brew.sh/cask/visual-studio-code).
-It solved almost all issues I had with `Sublime`.
 Here's how my new `vscode` setup looks like, using my own theme called [`pustota`](https://github.com/sobolevn/pustota):
 
 ![sobolevn's vscode for Python](https://raw.githubusercontent.com/sobolevn/dotfiles/master/media/vscode.png)
@@ -86,8 +80,7 @@ It was also heavily influenced by [`makevscodeawesome`](https://makevscodeawesom
 ## CLI
 
 I am using [`hyper`](https://hyper.is/) as my main terminal with my custom [`senya` theme](https://github.com/sobolevn/senya).
-I am using [`zsh`](https://github.com/zsh-users/zsh) with [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh)
-as the main shell.
+I am using [`zsh`](https://github.com/zsh-users/zsh) with [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh) as the main shell.
 And [`zplug`](https://github.com/zplug/zplug) to manage shell [plugins](https://github.com/sobolevn/dotfiles/blob/master/config/zplugrc).
 I also have a some tools / scripts / aliases to make my working experience better.
 But, I try to keep them minimal: only ones I truly use. Including: `bat`, `zoxide`, `fzf`, `ag`, `fd`, `delta`, `gh`, and many others.
@@ -100,9 +93,7 @@ I also have several other languages installed.
 But I don't use them on a daily basis:
 
 - `node`
-- `elixir`
-- `rust`
-- `c`
+- `go`
 
 ### nano
 
@@ -147,11 +138,15 @@ https://github.com/user-attachments/assets/34d94a70-083a-48b3-b955-37d2f2432551
 
 Since `zen` is based on `firefox`, you can copy [all the configuration](https://github.com/sobolevn/dotfiles/tree/master/firefox) I have for `zen` and use with just regular `firefox`.
 
+### Arc
+
+TBD
 
 ## Infrastructure
 
 I try to containerize everything.
 So, [`docker`](https://formulae.brew.sh/cask/docker) is my main development and deployment tool.
+Also I use [`colima`](https://github.com/abiosoft/colima) as Docker alternative.
 
 
 ## Local configuration
