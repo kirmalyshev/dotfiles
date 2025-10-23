@@ -2,7 +2,7 @@
 
 
 
-Here are some articles I wrote about my environment:
+Here are some articles from [@sobolevn](https://github.com/sobolevn):
 
 - ["Instant +100% command line productivity boost"](https://dev.to/sobolevn/instant-100-command-line-productivity-boost)
 - ["Using better CLIs"](https://dev.to/sobolevn/using-better-clis-6o8)
@@ -10,20 +10,20 @@ Here are some articles I wrote about my environment:
 
 And talks / podcasts:
 
-- ["Veged and Code podcast"](https://www.youtube.com/watch?v=nEF0I3VkmPA) \[in RU\]
-- ["minimal vscode"](https://www.youtube.com/watch?v=frZkPK_1Ui4&list=PLbr8rVGhPD0UriABMtqJ6oybD2d2ScT3u&pp=gAQB) series \[in RU\]
+- ["Veged and Code podcast"](https://www.youtube.com/watch?v=nEF0I3VkmPA) \[RU\]
+- ["minimal vscode"](https://www.youtube.com/watch?v=frZkPK_1Ui4&list=PLbr8rVGhPD0UriABMtqJ6oybD2d2ScT3u&pp=gAQB) series \[RU\]
 
 
 ## Contents
 
 What's in there?
 
-- all my `brew` dependencies including: applications, fonts, etc. See [`Brewfile`](https://github.com/kirmalyshev/dotfiles/blob/master/Brewfile)
-- all my `macOS` configuration. See [`macos`](https://github.com/kirmalyshev/dotfiles/blob/master/macos/)
-- all my shell configuration, including [sobolevn's `sobole`](https://github.com/kirmalyshev/sobole-zsh-theme) theme. See [`shell/`](https://github.com/kirmalyshev/dotfiles/tree/master/shell) and [`config/zshrc`](https://github.com/kirmalyshev/dotfiles/blob/master/config/zshrc)
-- all my `vscode` configuration, including [my own `pustota`](https://github.com/sobolevn/pustota) theme. See [`vscode/`](https://github.com/sobolevn/dotfiles/tree/master/vscode)
-- all my `firefox` (and Zen) settings. See [`firefox/`](https://github.com/sobolevn/dotfiles/tree/master/firefox)
-- all my [QuickLook](https://github.com/sindresorhus/quick-look-plugins) customizations and [dev utilities](https://github.com/sbarex/SourceCodeSyntaxHighlight)
+- `brew` dependencies including: applications, fonts, etc. See [`Brewfile`](https://github.com/kirmalyshev/dotfiles/blob/master/Brewfile)
+- `macOS` configuration. See [`macos`](https://github.com/kirmalyshev/dotfiles/blob/master/macos/)
+- shell configuration, including [sobolevn's `sobole`](https://github.com/kirmalyshev/sobole-zsh-theme) theme. See [`shell/`](https://github.com/kirmalyshev/dotfiles/tree/master/shell) and [`config/zshrc`](https://github.com/kirmalyshev/dotfiles/blob/master/config/zshrc)
+- `vscode` configuration, including [my own `pustota`](https://github.com/sobolevn/pustota) theme. See [`vscode/`](https://github.com/kirmalyshev/dotfiles/tree/master/vscode)
+- `firefox` (and Zen) settings. See [`firefox/`](https://github.com/kirmalyshev/dotfiles/tree/master/firefox)
+- [QuickLook](https://github.com/sindresorhus/quick-look-plugins) customizations and [dev utilities](https://github.com/sbarex/SourceCodeSyntaxHighlight)
 
 
 ## Main principles
@@ -42,9 +42,9 @@ We are using [`dotbot`](https://github.com/anishathalye/dotbot/)
 to set things up. Steps:
 
 0. Decide what you want to install: comment out `run_dotbot 'steps/...'` that you don't need
-1. Clone this repo with: `git clone https://github.com/sobolevn/dotfiles dotfiles`
+1. Clone this repo with: `git clone https://github.com/kirmalyshev/dotfiles dotfiles`
 2. `cd dotfiles/`
-3. Run: [`bash ./install`](https://github.com/sobolevn/dotfiles/blob/master/install)
+3. Run: [`bash ./install`](https://github.com/kirmalyshev/dotfiles/blob/master/install)
 
 
 ## VSCode
@@ -54,7 +54,7 @@ Here's how my new `vscode` setup looks like, using my own theme called [`pustota
 
 ![sobolevn's vscode for Python](https://raw.githubusercontent.com/sobolevn/dotfiles/master/media/vscode.png)
 
-Here's [a list of packages](https://github.com/sobolevn/dotfiles/blob/master/Brewfile) (see `vscode` calls at the bottom) I use:
+Here's [a list of packages](https://github.com/kirmalyshev/dotfiles/blob/master/Brewfile) (see `vscode` calls at the bottom) I use:
 
 - [`pustota`](https://github.com/sobolevn/pustota) theme
 - [`Python`](https://github.com/Microsoft/vscode-python) plugin
@@ -81,7 +81,7 @@ It was also heavily influenced by [`makevscodeawesome`](https://makevscodeawesom
 
 I am using [`hyper`](https://hyper.is/) as my main terminal with my custom [`senya` theme](https://github.com/sobolevn/senya).
 I am using [`zsh`](https://github.com/zsh-users/zsh) with [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh) as the main shell.
-And [`zplug`](https://github.com/zplug/zplug) to manage shell [plugins](https://github.com/sobolevn/dotfiles/blob/master/config/zplugrc).
+And [`zplug`](https://github.com/zplug/zplug) to manage shell [plugins](https://github.com/kirmalyshev/dotfiles/blob/master/config/zplugrc).
 I also have a some tools / scripts / aliases to make my working experience better.
 But, I try to keep them minimal: only ones I truly use. Including: `bat`, `zoxide`, `fzf`, `ag`, `fd`, `delta`, `gh`, and many others.
 
@@ -97,27 +97,27 @@ But I don't use them on a daily basis:
 
 ### nano
 
-I also use [powered-up `nano`](https://github.com/sobolevn/dotfiles/blob/master/config/nanorc)
+I also use [powered-up `nano`](https://github.com/kirmalyshev/dotfiles/blob/master/config/nanorc)
 for in-terminal editing.
 
 ### fzf goodies
 
-I use `fzf` for several [code completion](https://github.com/sobolevn/dotfiles/blob/master/shell/.completions) tasks:
+I use `fzf` for several [code completion](https://github.com/kirmalyshev/dotfiles/blob/master/shell/.completions) tasks:
 
 - `tab` to autocomplete probably all the things using [`fzf-tab`](https://github.com/Aloxaf/fzf-tab)
 
-![fzf-tab](https://raw.githubusercontent.com/sobolevn/dotfiles/master/media/fzf-tab.png)
+![fzf-tab](https://raw.githubusercontent.com/kirmalyshev/dotfiles/master/media/fzf-tab.png)
 
 Multiple tools have custom completions like: `zoxide`, `make`, `killall`
 that work well with `fzf`'s preview feature.
 
 - `ctrl+r` allows me to fuzzy search command history
 
-![fzf-history](https://raw.githubusercontent.com/sobolevn/dotfiles/master/media/fzf-history.png)
+![fzf-history](https://raw.githubusercontent.com/kirmalyshev/dotfiles/master/media/fzf-history.png)
 
 - `ctrl+t` allows to fuzzy search files and dirs in the current tree to include paths in commands with instant previews for text files (content) and directories (inner tree)
 
-![fzf-paths](https://raw.githubusercontent.com/sobolevn/dotfiles/master/media/fzf-paths.png)
+![fzf-paths](https://raw.githubusercontent.com/kirmalyshev/dotfiles/master/media/fzf-paths.png)
 
 - `ctrl+g` + many subcommands like `ctrl+l` open up [`fzf-simple-git`](https://github.com/sobolevn/fzf-simple-git), which is really helpful for `git` browsing
 
@@ -128,7 +128,7 @@ https://github.com/user-attachments/assets/093201a6-3d0c-43ad-b00d-3a27f802bb92
 
 I am using [`brew`](https://brew.sh/) to install all free apps for my mac.
 I also sync apps from AppStore with `brew` via [`mas`](https://formulae.brew.sh/formula/mas),
-so the resulting [`Brewfile`](https://github.com/sobolevn/dotfiles/blob/master/Brewfile) contains everything.
+so the resulting [`Brewfile`](https://github.com/kirmalyshev/dotfiles/blob/master/Brewfile) contains everything.
 
 ### FireFox and Zen
 
@@ -136,7 +136,7 @@ I use [`zen` browser](https://zen-browser.app) as my main browser. Yes, it does 
 
 https://github.com/user-attachments/assets/34d94a70-083a-48b3-b955-37d2f2432551
 
-Since `zen` is based on `firefox`, you can copy [all the configuration](https://github.com/sobolevn/dotfiles/tree/master/firefox) I have for `zen` and use with just regular `firefox`.
+Since `zen` is based on `firefox`, you can copy [all the configuration](https://github.com/kirmalyshev/dotfiles/tree/master/firefox) I have for `zen` and use with just regular `firefox`.
 
 ### Arc
 
