@@ -24,13 +24,10 @@ PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
 # Adds `poetry` binary, should be added to the end:
-PATH="$HOME/.poetry/bin:$PATH"
+# PATH="$HOME/.poetry/bin:$PATH"
 
 # npm:
 PATH="/usr/local/share/npm/bin:$PATH"
-
-# rustup:
-PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 
 # === General ===
