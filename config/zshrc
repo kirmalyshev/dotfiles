@@ -78,6 +78,8 @@ source "$HOME/.shell/.completions"
 if [[ -f "$HOME/.shell_env_local" ]]; then
   source "$HOME/.shell_env_local"
 fi
+
+# TODO remove in December
 # BEGIN BASH-RC MAKERSITE MANAGED BLOCK
 if [ -f /Users/kirill/.makersite/.shell_rc ]; then
     . /Users/kirill/.makersite/.shell_rc
