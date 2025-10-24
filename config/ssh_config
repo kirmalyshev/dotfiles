@@ -1,4 +1,5 @@
 Host github-kirill-personal
+  HostName github.com
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/personal_ed25519
