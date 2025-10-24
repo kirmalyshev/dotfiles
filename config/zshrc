@@ -78,3 +78,13 @@ source "$HOME/.shell/.completions"
 if [[ -f "$HOME/.shell_env_local" ]]; then
   source "$HOME/.shell_env_local"
 fi
+# BEGIN BASH-RC MAKERSITE MANAGED BLOCK
+if [ -f /Users/kirill/.makersite/.shell_rc ]; then
+    . /Users/kirill/.makersite/.shell_rc
+fi
+# END BASH-RC MAKERSITE MANAGED BLOCK
+# BEGIN BASH-ALIASES MAKERSITE MANAGED BLOCK
+if [ -f /Users/kirill/.makersite/.shell_aliases ]; then
+    . /Users/kirill/.makersite/.shell_aliases
+fi
+# END BASH-ALIASES MAKERSITE MANAGED BLOCK
