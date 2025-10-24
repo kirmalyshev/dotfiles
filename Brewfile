@@ -1,8 +1,9 @@
-tap "koekeishiya/formulae"
 tap "homebrew/services"
+tap "koekeishiya/formulae"
 
 brew "aichat"
-
+# General-purpose data compression with high compression ratio
+brew "xz"
 # C/C++ resolver library and DNS resolver utilities
 brew "adns"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -11,36 +12,34 @@ brew "bash"
 brew "bat"
 # Get/set bluetooth power and discoverable state
 brew "blueutil"
+
+## C
 # Insanely fast image printing in your terminal
 brew "catimg"
 # Mozilla CA bundle for Python
 brew "certifi"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-
 brew "cmake"
+brew "codex"
 # Reimplementation of ctags(1)
 brew "ctags"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
-# C library implementing the SSH2 protocol
-brew "libssh2"
-# Tool for downloading RTMP streaming media
-brew "rtmpdump"
-# General-purpose data compression with high compression ratio
-brew "xz"
+
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+## D
 brew "docker"
 brew "docker-compose"
 # Clean Docker containers, images, networks, and volumes
 brew "docker-clean"
-# ODBC 3 connectivity for UNIX
-brew "unixodbc"
 
+## F
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+
+## G
+brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -52,16 +51,16 @@ brew "git-lfs"
 # Core application library for C
 brew "glib"
 
+## H
+# Convert source code to formatted text with syntax highlighting
+brew "highlight"
 brew "htop"
 
-# Asynchronous event library
-brew "libevent"
-# International domain name library (IDNA2008, Punycode and TR46)
-brew "libidn2"
-# Library to load and enumerate PKCS#11 modules
-brew "p11-kit"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
+# Image manipulation library
+brew "jpeg"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+## G
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
 # Assuan IPC Library
@@ -76,18 +75,27 @@ brew "pinentry"
 brew "gnupg"
 # Library access to GnuPG
 brew "gpgme"
+
+## H
 # Command-line hex viewer
 brew "hexyl"
-# Powerful, lightweight programming language
-brew "lua"
-# Convert source code to formatted text with syntax highlighting
-brew "highlight"
-# Image manipulation library
-brew "jpeg"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
+
+## L
+# Asynchronous event library
+brew "libevent"
+# International domain name library (IDNA2008, Punycode and TR46)
+brew "libidn2"
+# Library to load and enumerate PKCS#11 modules
+brew "libmemcached"
+brew "libssh2"
+# Tool for downloading RTMP streaming media
 # YAML Parser
 brew "libyaml"
+# Powerful, lightweight programming language
+brew "lua"
+
+## M
+
 # Mac App Store command-line interface
 brew "mas"
 
@@ -95,14 +103,18 @@ brew "midnight-commander"
 
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
-
-cask "ngrok"
-cask "raycast"
-
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# C library implementing the SSH2 protocol
+
+brew "rtmpdump"
+
+brew "p11-kit"
+# Validating, recursive, caching DNS resolver
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Execute binaries from Python packages in isolated environments
@@ -119,8 +131,12 @@ brew "shellcheck"
 brew "the_silver_searcher"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
 # Internet file retriever
 brew "wget"
+# Z
+brew "zlib"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Next-generation plugin manager for zsh
@@ -145,6 +161,15 @@ cask "hyper"
 cask "keyboard-cleaner"
 # Open-source keystroke visualiser
 cask "keycastr"
+
+cask "ngrok"
+cask "openinterminal"
+cask "qlcolorcode"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "quicklook-json"
+cask "raycast"
+
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Quicklook extension for source files
@@ -160,18 +185,22 @@ cask "zen"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Delete Apps", id: 1033808943
+mas "Endel", id: 1346247457
 mas "HazeOver", id: 430798174
 mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Xcode", id: 497799835
-mas "Endel", id: 1346247457
 mas "Kindle", id: 302584613
+mas "Numbers", id: 409203825
 mas "Outline", id: 1356178125
+mas "Pages", id: 409201541
 mas "WhatsApp", id: 310633997
+mas "Xcode", id: 497799835
 vscode "editorconfig.editorconfig"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.makefile-tools"
 vscode "sobolevn.pustota"
 vscode "subframe7536.custom-ui-style"
 vscode "teabyii.ayu"

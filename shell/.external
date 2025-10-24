@@ -47,6 +47,10 @@ _fzf_compgen_dir () {
 
 # See `.completions` file for all the list of fast tab completions.
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # === z ===
 # https://github.com/ajeetdsouza/zoxide
@@ -61,3 +65,4 @@ z () {
   # I need this function to setup custom code completion for `zoxide`.
   \__zoxide_z "$@"
 }
+
