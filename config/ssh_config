@@ -3,5 +3,3 @@ Host github-kirill-personal
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/personal_ed25519
-
-Include ~/.makersite/ssh_config

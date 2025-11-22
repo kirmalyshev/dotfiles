@@ -89,6 +89,8 @@ export NODE_REPL_MODE='sloppy'
 # Erlang and Elixir shell history:
 export ERL_AFLAGS='-kernel shell_history enabled'
 
+export PATH="$PATH:~/.lmstudio/bin"
+
 
 # === Code highlight ===
 # https://github.com/zsh-users/zsh-syntax-highlighting
