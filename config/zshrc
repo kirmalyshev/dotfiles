@@ -90,3 +90,6 @@ if [ -f /Users/kirill/.makersite/.shell_aliases ]; then
     . /Users/kirill/.makersite/.shell_aliases
 fi
 # END BASH-ALIASES MAKERSITE MANAGED BLOCK
+
+# Added by Antigravity
+export PATH="/Users/kirill/.antigravity/antigravity/bin:$PATH"
