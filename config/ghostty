@@ -1,0 +1,46 @@
+# Ghostty terminal configuration
+# Ported from hyper.js settings
+
+# Font settings
+font-family = Menlo
+font-size = 12
+font-style = normal
+font-style-bold = bold
+
+# Cursor
+cursor-color = #f81ce5
+cursor-style = block
+cursor-style-blink = false
+
+# Colors
+foreground = #ffffff
+background = #000000
+selection-foreground = #ffffff
+selection-background = #f81ce5
+
+# Color palette (0-15)
+palette = 0=#000000
+palette = 1=#c51e14
+palette = 2=#1dc121
+palette = 3=#c7c329
+palette = 4=#0a2fc4
+palette = 5=#c839c5
+palette = 6=#20c5c6
+palette = 7=#c7c7c7
+palette = 8=#686868
+palette = 9=#fd6f6b
+palette = 10=#67f86f
+palette = 11=#fffa72
+palette = 12=#6a76fb
+palette = 13=#fd7cfc
+palette = 14=#68fdfe
+palette = 15=#ffffff
+
+# Window padding
+window-padding-x = 14
+window-padding-y = 12
+
+# Keybindings (none were custom in Hyper config)
+# Add custom keybindings below:
+# keybind = ctrl+shift+c=copy_to_clipboard
+# keybind = ctrl+shift+v=paste_from_clipboard
