@@ -22,3 +22,25 @@ mcdir () {
   local dir_name="$1"
   mkdir -p "$dir_name" && cd "$dir_name"
 }
+
+
+# === Agents ===
+_claude_with_profile () {
+  export CLAUDE_CONFIG_DIR="$1"
+  command claude "${@:2}"
+}
+
+# Claude personal
+function claude-personal() {
+  _claude_with_profile "$HOME/.claude-personal" "$@"
+}
+
+# Claude work
+function claude-work() {
+  _claude_with_profile "$HOME/.claude-work" "$@"
+}
+
+# Claude sandbox
+function claude-sandbox() {
+  _claude_with_profile "$HOME/.claude-sandbox" "$@"
+}
