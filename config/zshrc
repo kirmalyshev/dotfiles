@@ -79,18 +79,6 @@ if [[ -f "$HOME/.shell_env_local" ]]; then
   source "$HOME/.shell_env_local"
 fi
 
-# TODO remove in December
-# BEGIN BASH-RC MAKERSITE MANAGED BLOCK
-if [ -f /Users/kirill/.makersite/.shell_rc ]; then
-    . /Users/kirill/.makersite/.shell_rc
-fi
-# END BASH-RC MAKERSITE MANAGED BLOCK
-# BEGIN BASH-ALIASES MAKERSITE MANAGED BLOCK
-if [ -f /Users/kirill/.makersite/.shell_aliases ]; then
-    . /Users/kirill/.makersite/.shell_aliases
-fi
-# END BASH-ALIASES MAKERSITE MANAGED BLOCK
-
 # Added by Antigravity
 export PATH="/Users/kirill/.antigravity/antigravity/bin:$PATH"
 
@@ -101,4 +89,6 @@ export PATH="$PATH:/Users/kirill/.lmstudio/bin"
 
 # Amp CLI
 export PATH="/Users/kirill/.amp/bin:$PATH"
+
+
 

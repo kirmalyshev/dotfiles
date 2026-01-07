@@ -27,5 +27,5 @@ alias wifi_pass='security find-generic-password -wa'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied to pasteboard.'"
 
 # Claude
-alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
-alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work claude'
+# alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
+# alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work claude'
