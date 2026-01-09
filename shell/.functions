@@ -44,3 +44,18 @@ function claude-work() {
 function claude-sandbox() {
   _claude_with_profile "$HOME/.claude-sandbox" "$@"
 }
+
+# Amp helper
+_amp_with_config() {
+  command amp --settings-file "$1" "${@:2}"
+}
+
+# Amp personal
+function amp-personal() {
+  _amp_with_config "$HOME/.amp/personal/config.yml" "$@"
+}
+
+# Amp cogram
+function amp-cogram() {
+  _amp_with_config "$HOME/.amp/cogram/config.yml" "$@"
+}
