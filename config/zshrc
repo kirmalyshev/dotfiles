@@ -92,3 +92,18 @@ export PATH="/Users/kirill/.amp/bin:$PATH"
 
 
 
+
+# bun completions
+[ -s "/Users/kirill/.bun/_bun" ] && source "/Users/kirill/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# PAI Configuration (added by Kai Bundle installer)
+export DA="Krot"
+export TIME_ZONE="Europe/Berlin"
+export PAI_SOURCE_APP="$DA"
+
+
