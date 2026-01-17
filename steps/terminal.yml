@@ -28,6 +28,11 @@
     ~/.inputrc: config/inputrc
     ~/.hyper.js: config/hyper.js
 
+    # iTerm2:
+    ~/Library/Preferences/com.googlecode.iterm2.plist:
+      path: iterm2/com.googlecode.iterm2.plist
+      force: true
+
     # Git:
     ~/.gitconfig: config/gitconfig
     ~/.gitignore_global: config/gitignore
