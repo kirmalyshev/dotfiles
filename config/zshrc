@@ -50,11 +50,11 @@ plugins=(
   node
   pip
   poetry
-  pyenv
   python
   ssh
   sublime
   wd
+  uv
 )
 
 # Sourcing the Oh-My-ZSH source:
