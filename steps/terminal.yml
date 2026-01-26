@@ -28,6 +28,12 @@
     ~/.inputrc: config/inputrc
     ~/.hyper.js: config/hyper.js
 
+    # Ghostty:
+    ~/Library/Application Support/com.mitchellh.ghostty/config:
+      path: config/ghostty
+      force: true
+      create: true
+
     # iTerm2:
     ~/Library/Preferences/com.googlecode.iterm2.plist:
       path: iterm2/com.googlecode.iterm2.plist
