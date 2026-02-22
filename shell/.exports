@@ -23,9 +23,6 @@ PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 # Adds `pipx` binary files:
 PATH="$HOME/.local/bin:$PATH"
 
-# Adds `poetry` binary, should be added to the end:
-# PATH="$HOME/.poetry/bin:$PATH"
-
 # npm:
 PATH="/usr/local/share/npm/bin:$PATH"
 
@@ -70,11 +67,6 @@ if [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ]; then
 fi
 
 
-
-# === Poetry ===
-# https://python-poetry.org/docs/configuration/
-
-export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 
 # === Histories ===

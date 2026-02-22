@@ -26,11 +26,15 @@
 
     ~/.hushlogin: config/hushlogin
     ~/.inputrc: config/inputrc
-    ~/.hyper.js: config/hyper.js
-
     # Ghostty:
     ~/Library/Application Support/com.mitchellh.ghostty/config:
       path: config/ghostty
+      force: true
+      create: true
+
+    # Kitty:
+    ~/.config/kitty/kitty.conf:
+      path: config/kitty/kitty.conf
       force: true
       create: true
 
@@ -68,11 +72,3 @@
     ~/.skhdrc:
       path: config/skhdrc
       force: true
-
-# See https://python-poetry.org
-- shell:
-    - command: |
-        curl -sSL https://install.python-poetry.org | python3 -
-      description: Install poetry
-      stdout: true
-      stderr: true

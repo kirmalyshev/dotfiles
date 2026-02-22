@@ -1,5 +1,5 @@
 # Ghostty terminal configuration
-# Ported from hyper.js settings
+# Ported from Ghostty settings
 
 # Font settings
 font-family = Menlo

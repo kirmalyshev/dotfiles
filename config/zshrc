@@ -49,7 +49,6 @@ plugins=(
   macos
   node
   pip
-  poetry
   python
   ssh
   sublime

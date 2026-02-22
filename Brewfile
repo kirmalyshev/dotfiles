@@ -133,6 +133,8 @@ brew "the_silver_searcher"
 brew "tree"
 # ODBC 3 connectivity for UNIX
 brew "unixodbc"
+# Python package and project manager
+brew "uv"
 # Internet file retriever
 brew "wget"
 # Z
@@ -145,6 +147,10 @@ brew "zplug"
 brew "zsh"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
+# Google Antigravity IDE
+cask "antigravity"
+# Anthropic Claude desktop app
+cask "claude"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 # Web browser
@@ -155,8 +161,8 @@ cask "font-consolas-for-powerline"
 cask "font-fira-code"
 # Web browser
 cask "google-chrome"
-# Terminal built on web technologies
-cask "hyper"
+# GPU based terminal emulator
+cask "kitty"
 # Desktop shield and keystroke interceptor
 cask "keyboard-cleaner"
 # Open-source keystroke visualiser
