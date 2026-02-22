@@ -57,12 +57,21 @@ def build(state):
     return "\n".join(out) + "\n" if out else None
 
 
+def kitty_quit():
+    subprocess.run(["kitty", "@", "quit"])
+
+
 if __name__ == "__main__":
+    do_quit = "--quit" in sys.argv
     state = kitty_ls()
     if not state:
+        if do_quit:
+            kitty_quit()
         sys.exit(1)
     content = build(state)
     if content:
         os.makedirs(os.path.dirname(SESSION), exist_ok=True)
         with open(SESSION, "w") as f:
             f.write(content)
+    if do_quit:
+        kitty_quit()
