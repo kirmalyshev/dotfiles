@@ -26,6 +26,9 @@ PATH="$HOME/.local/bin:$PATH"
 # npm:
 PATH="/usr/local/share/npm/bin:$PATH"
 
+# JetBrains Toolbox CLI commands:
+PATH="$HOME/Personal/repos/dotfiles/jetbrains:$PATH"
+
 
 # === General ===
 
