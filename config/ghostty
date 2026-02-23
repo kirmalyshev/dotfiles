@@ -1,6 +1,8 @@
 # Ghostty terminal configuration
 # Ported from Ghostty settings
 
+theme = Dracula
+
 # Font settings
 font-family = Menlo
 font-size = 12
