@@ -11,3 +11,4 @@ export PATH
 export PATH="$PATH:/Users/kirill/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH=$PATH:$HOME/.maestro/bin

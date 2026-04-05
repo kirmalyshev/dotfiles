@@ -106,3 +106,31 @@ export TIME_ZONE="Europe/Berlin"
 export PAI_SOURCE_APP="$DA"
 
 
+
+# Added by Antigravity
+export PATH="/Users/kirill/.antigravity/antigravity/bin:$PATH"
+
+
+# PAI statusline toggle
+pai-expand() {
+    touch "${PAI_DIR:-$HOME/.claude}/MEMORY/STATE/statusline-expanded"
+    echo "PAI statusline: expanded"
+}
+pai-collapse() {
+    rm -f "${PAI_DIR:-$HOME/.claude}/MEMORY/STATE/statusline-expanded"
+    echo "PAI statusline: collapsed"
+}
+pai-toggle() {
+    local flag="${PAI_DIR:-$HOME/.claude}/MEMORY/STATE/statusline-expanded"
+    if [ -f "$flag" ]; then
+        rm -f "$flag"
+        echo "PAI statusline: collapsed"
+    else
+        touch "$flag"
+        echo "PAI statusline: expanded"
+    fi
+}
+export PATH=$PATH:$HOME/.maestro/bin
+
+# PAI alias
+alias pai='bun /Users/kirill/.claude/PAI/Tools/pai.ts'
