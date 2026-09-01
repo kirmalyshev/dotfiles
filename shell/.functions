@@ -59,3 +59,21 @@ function amp-personal() {
 function amp-cogram() {
   _amp_with_config "$HOME/.amp/cogram/config.yml" "$@"
 }
+
+
+
+# Cogram
+alias cft='cloudflared tunnel run --token eyJhIjoiZjE5ZTBlYTdhM2U5ZmFlNWEyMDVmYWU5MTUyNDg2ZDIiLCJ0IjoiMzlhNGNlMjAtMWM0MC00ZTY4LTgyOWEtMTUwMjA2MDM4OWNkIiwicyI6Ik9HUXlaV05tWmpndE5tVmtNUzAwWXprekxUZzVZek10TkdSbU5XRXhOekk0WlRBeiJ9'
+
+# custom tunnel 
+cftp() {
+  local port="${1:?usage: cftp <port>  (e.g. cftp 9010)}"
+  if [[ "$port" != "8990" ]]; then
+    if ! command -v socat >/dev/null; then echo "cftp: socat not installed"; return 1; fi
+    socat TCP-LISTEN:8990,fork,reuseaddr TCP:localhost:"$port" &
+    local bridge_pid=$!
+    trap "kill $bridge_pid 2>/dev/null" EXIT INT TERM
+    echo "cftp: yourhost.cogram.dev -> localhost:8990 (socat bridge) -> localhost:$port"
+  fi
+  cft
+}

@@ -111,26 +111,46 @@ export PAI_SOURCE_APP="$DA"
 export PATH="/Users/kirill/.antigravity/antigravity/bin:$PATH"
 
 
-# PAI statusline toggle
-pai-expand() {
-    touch "${PAI_DIR:-$HOME/.claude}/MEMORY/STATE/statusline-expanded"
-    echo "PAI statusline: expanded"
+# LifeOS statusline level (min | compact | mid | full)
+# Writes the state file that ~/.claude/statusline-collapse.sh reads each render.
+lifeos-sl() {
+    local d="$HOME/.claude/LIFEOS/MEMORY/STATE"
+    case "${1:-}" in
+        min|compact|mid|full)
+            mkdir -p "$d" && printf '%s\n' "$1" > "$d/statusline-level"
+            echo "LifeOS statusline: $1" ;;
+        ""|status) echo "LifeOS statusline: $(cat "$d/statusline-level" 2>/dev/null || echo compact)" ;;
+        *) echo "usage: lifeos-sl [min|compact|mid|full|status]" ; return 1 ;;
+    esac
 }
-pai-collapse() {
-    rm -f "${PAI_DIR:-$HOME/.claude}/MEMORY/STATE/statusline-expanded"
-    echo "PAI statusline: collapsed"
+lifeos-collapse() { lifeos-sl min; }
+lifeos-expand()   { lifeos-sl full; }
+lifeos-toggle() {
+    local f="$HOME/.claude/LIFEOS/MEMORY/STATE/statusline-level"
+    [ "$(cat "$f" 2>/dev/null)" = "full" ] && lifeos-sl compact || lifeos-sl full
 }
-pai-toggle() {
-    local flag="${PAI_DIR:-$HOME/.claude}/MEMORY/STATE/statusline-expanded"
-    if [ -f "$flag" ]; then
-        rm -f "$flag"
-        echo "PAI statusline: collapsed"
-    else
-        touch "$flag"
-        echo "PAI statusline: expanded"
-    fi
-}
+# muscle-memory aliases from PAI
+pai-collapse() { lifeos-collapse; }
+pai-expand()   { lifeos-expand; }
+pai-toggle()   { lifeos-toggle; }
 export PATH=$PATH:$HOME/.maestro/bin
+
+
+source /Users/kirill/.daytona.completion_script.zsh
+
+# Added by PAI installer — make bun reachable for hook subprocesses
+export PATH="$HOME/.bun/bin:$PATH"
 
 # PAI alias
 alias pai='bun /Users/kirill/.claude/PAI/Tools/pai.ts'
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/kirill/.local/bin:$PATH"
+
+# ponytail (lazy-mode skill) default level
+export PONYTAIL_DEFAULT_MODE=full
+
+# Added by Antigravity IDE
+export PATH="/Users/kirill/.antigravity-ide/antigravity-ide/bin:$PATH"
+eval "$(direnv hook zsh)"

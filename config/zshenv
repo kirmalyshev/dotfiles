@@ -43,3 +43,11 @@ _fzf_complete_realpath () {
     echo "$realpath" | fold -w "$FZF_PREVIEW_COLUMNS"
   fi
 }
+
+# Added by PAI installer — make bun reachable for hook subprocesses
+export PATH="$HOME/.bun/bin:$PATH"
+. "$HOME/.cargo/env"
+
+# App Store Connect ids for scripts/asc.ts (eait repo); the .p8 lives in ~/.config/eait
+export EAIT__TOOLING__ASC_KEY_ID=9VC5UXHK4B
+export EAIT__TOOLING__ASC_ISSUER_ID=295582c3-be44-4e97-bbbc-206136280402

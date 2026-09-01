@@ -6,3 +6,8 @@
 export PATH="$PATH:/Users/kirill/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/kirill/.local/bin:$PATH"
+. "$HOME/.cargo/env"

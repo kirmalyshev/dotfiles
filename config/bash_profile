@@ -12,3 +12,11 @@ export PATH="$PATH:/Users/kirill/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export PATH=$PATH:$HOME/.maestro/bin
+
+# Added by PAI installer — make bun reachable for hook subprocesses
+export PATH="$HOME/.bun/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/kirill/.local/bin:$PATH"
+. "$HOME/.cargo/env"
