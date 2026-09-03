@@ -45,3 +45,4 @@ WakaTime.sublime-settings
 .vscode/tags
 Brewfile.lock.json
 private/
+.idea/

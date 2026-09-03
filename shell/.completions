@@ -86,3 +86,15 @@ _z () {
 compdef _z z
 zstyle ':fzf-tab:complete:(\\|*/|)z:*' fzf-preview \
   '_fzf_complete_realpath "$word"'
+
+# complete `uv run` with the Python files in the tree, and defer to uv's own
+# completion for everything else.
+_uv_run_mod () {
+  if [[ "$words[2]" == 'run' && "$words[CURRENT]" != -* ]]; then
+    _arguments '*:filename:_files -g "*.py"'
+  else
+    _uv "$@"
+  fi
+}
+
+compdef _uv_run_mod uv
