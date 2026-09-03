@@ -6,11 +6,10 @@
 # === fzf ===
 # https://github.com/junegunn/fzf
 
-if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
+# brew keeps fzf's shell integration under its own prefix. Elsewhere fzf is on
+# PATH already, from a package or its own installer, and there is nothing to add.
+if have brew && [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
-
-  # Enable `fzf`:
-  eval "$(fzf --zsh)"
 fi
 
 # fzf configuration:
@@ -47,9 +46,27 @@ _fzf_compgen_dir () {
 
 # See `.completions` file for all the list of fast tab completions.
 
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Set up fzf key bindings and fuzzy completion. This is the line the block above
+# used to run too, which meant it ran twice when brew was present and never when
+# it was not — the bindings come from here now, once, wherever fzf came from.
+if have fzf; then
+  source <(fzf --zsh)
+fi
+
+# zsh-syntax-highlighting installs somewhere different on every platform, and
+# sourcing a path that is not there is one of the loudest lines in a fresh shell.
+for _zsh_hl in \
+  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+do
+  if [ -r "$_zsh_hl" ]; then
+    source "$_zsh_hl"
+    break
+  fi
+done
+unset _zsh_hl
 
 
 # === z ===
@@ -59,10 +76,12 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # but it works only for `z NAME<SPACE><TAB>`,
 # it does not work for `z NAME<TAB>`.
 # So, I have this usecase as a custom completion defined in `.completions`.
-eval "$(zoxide init zsh --no-cmd)"
+if have zoxide; then
+  eval "$(zoxide init zsh --no-cmd)"
 
-z () {
-  # I need this function to setup custom code completion for `zoxide`.
-  \__zoxide_z "$@"
-}
+  z () {
+    # I need this function to setup custom code completion for `zoxide`.
+    \__zoxide_z "$@"
+  }
+fi
 

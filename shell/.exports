@@ -6,11 +6,21 @@
 # === Compiler flags ===
 
 # This is required because `openssl` is keg-only in `brew`,
-# see: `brew info openssl` for more information.
-export LDFLAGS="-L$(brew --prefix)/opt/openssl/lib"
-export CPPFLAGS="-I$(brew --prefix)/opt/openssl/include"
-export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
-export PKG_CONFIG_PATH="$(brew --prefix)/opt/openssl/lib/pkgconfig"
+# see: `brew info openssl` for more information. On a machine without brew there
+# is no keg to point at and the distro's own openssl is already discoverable, so
+# there is nothing to set — and four `command not found` lines to avoid. Called
+# once and reused: `brew --prefix` is a Ruby start-up, three times over.
+if have brew; then
+  brew_prefix="$(brew --prefix)"
+  export LDFLAGS="-L$brew_prefix/opt/openssl/lib"
+  export CPPFLAGS="-I$brew_prefix/opt/openssl/include"
+  export PKG_CONFIG_PATH="$brew_prefix/opt/openssl/lib/pkgconfig"
+fi
+
+# Xcode's SDK, which only exists where Xcode does.
+if have xcrun; then
+  export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+fi
 
 
 # === Path modifications ===
@@ -26,18 +36,26 @@ PATH="$HOME/.local/bin:$PATH"
 # npm:
 PATH="/usr/local/share/npm/bin:$PATH"
 
-# JetBrains Toolbox CLI commands:
-PATH="$HOME/Personal/repos/dotfiles/jetbrains:$PATH"
+# JetBrains Toolbox CLI commands, from this checkout — which is not at that path
+# on every machine, and does not exist at all on a headless one.
+if [ -d "$HOME/Personal/repos/dotfiles/jetbrains" ]; then
+  PATH="$HOME/Personal/repos/dotfiles/jetbrains:$PATH"
+fi
 
 
 # === General ===
 
-# Editor:
-export EDITOR="$(which nano)"
+# Editor. An empty EDITOR is worse than none: git and friends fall back to vi
+# when it is unset, and error out when it is set to nothing.
+if have nano; then
+  export EDITOR="$(which nano)"
+fi
 
 # GPG:
 export GPG_TTY="$(tty)"
-eval "$(gpg-agent --daemon --allow-preset-passphrase > /dev/null 2>&1)"
+if have gpg-agent; then
+  eval "$(gpg-agent --daemon --allow-preset-passphrase > /dev/null 2>&1)"
+fi
 
 # Homebrew:
 export HOMEBREW_NO_ANALYTICS=1  # disables statistics that brew collects
@@ -65,8 +83,8 @@ export MANPAGER='less'
 
 # nvm:
 export NVM_DIR="$HOME/.nvm"
-if [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ]; then
-  source "$(brew --prefix)/opt/nvm/nvm.sh"
+if have brew && [ -s "$brew_prefix/opt/nvm/nvm.sh" ]; then
+  source "$brew_prefix/opt/nvm/nvm.sh"
 fi
 
 
@@ -90,6 +108,11 @@ export PATH="$PATH:~/.lmstudio/bin"
 
 # We won't highlight code longer than 200 chars, because it is slow:
 export ZSH_HIGHLIGHT_MAXLENGTH=200
+
+
+# Used by the two blocks above and nothing else; not left lying around in an
+# interactive shell.
+unset brew_prefix
 
 
 # === PATH ===

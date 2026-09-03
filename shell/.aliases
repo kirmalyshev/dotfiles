@@ -5,26 +5,45 @@
 
 # === Aliases ===
 
-# Sorts directories in top, colors, and prints `/` at directories:
-alias ls='gls --color -h --group-directories-first -F'
+# Sorts directories in top, colors, and prints `/` at directories.
+# `--group-directories-first` is GNU-only and macOS ships BSD ls, which is why
+# this wants coreutils' `gls` there. On Linux, plain `ls` already IS that binary
+# — aliasing to `gls` on a machine without coreutils breaks `ls` outright.
+if have gls; then
+  alias ls='gls --color -h --group-directories-first -F'
+elif ! is_macos; then
+  alias ls='ls --color -h --group-directories-first -F'
+fi
 
-# Use syntax highlight for `cat`:
-alias cat='bat --paging never --decorations never --plain'
+# Use syntax highlight for `cat`. Debian and Ubuntu ship the same binary as
+# `batcat`, the name `bat` being taken there. Unaliased if neither is installed:
+# an alias to a missing binary would take `cat` itself down with it.
+if have bat; then
+  alias cat='bat --paging never --decorations never --plain'
+elif have batcat; then
+  alias cat='batcat --paging never --decorations never --plain'
+fi
 
-# Lock the screen (when going AFK)
-alias afk='pmset displaysleepnow'
+# The rest of this file is macOS: pmset, pbcopy and the keychain. These are
+# aliases, so an unguarded one only fails when called — but `alias` on a Linux
+# box is still a promise the shell cannot keep, and `pubkey` failing halfway
+# through a pipe is worse than not being there.
+if is_macos; then
+  # Lock the screen (when going AFK)
+  alias afk='pmset displaysleepnow'
 
-# Copy public key to clipboard:
-alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+  # Copy public key to clipboard:
+  alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
-# Copy current branch name to clipboard
-alias gbcp='git rev-parse --abbrev-ref HEAD | pbcopy'
+  # Copy current branch name to clipboard
+  alias gbcp='git rev-parse --abbrev-ref HEAD | pbcopy'
 
-# Find WiFi password, add the name:
-alias wifi_pass='security find-generic-password -wa'
+  # Find WiFi password, add the name:
+  alias wifi_pass='security find-generic-password -wa'
 
-# I use this a lot:
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied to pasteboard.'"
+  # I use this a lot:
+  alias shrug="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied to pasteboard.'"
+fi
 
 # Claude
 # alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'

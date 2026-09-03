@@ -30,9 +30,10 @@ HIST_IGNORE_SPACE='true'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+# `brew`, `iterm2` and `macos` are added below, on macOS only: each defines
+# completions or functions for something a Linux box does not have.
 plugins=(
   aliases
-  brew
   colored-man-pages
   colorize
   cp
@@ -45,8 +46,6 @@ plugins=(
   golang
   helm
   history
-  iterm2
-  macos
   node
   pip
   python
@@ -56,11 +55,21 @@ plugins=(
   uv
 )
 
+if is_macos; then
+  plugins+=(brew iterm2 macos)
+fi
+
 # Sourcing the Oh-My-ZSH source:
 source "$ZSH/oh-my-zsh.sh"
 
-# This PATH needs to be set before all other modifications:
-export PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+# This PATH needs to be set before all other modifications. It REPLACES what
+# came before, deliberately: /etc/paths and every installer prepends, and this is
+# the one place that decides the order. That only makes sense on a Mac — on Linux
+# there is no /opt/homebrew, and a reset drops what the distro put there and
+# nothing puts back (/snap/bin, ~/.local/bin, /usr/games).
+if is_macos; then
+  export PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+fi
 
 
 # === Shell parts ===
@@ -78,22 +87,21 @@ if [[ -f "$HOME/.shell_env_local" ]]; then
   source "$HOME/.shell_env_local"
 fi
 
-# Added by Antigravity
-export PATH="/Users/kirill/.antigravity/antigravity/bin:$PATH"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/kirill/.lmstudio/bin"
-# End of LM Studio CLI section
-
-
-# Amp CLI
-export PATH="/Users/kirill/.amp/bin:$PATH"
-
-
-
+# Appended by various installers, each with this Mac's home path written out and
+# each prepending a directory that exists on one machine. Collapsed into one loop
+# over $HOME, skipping what is not there — Antigravity was in here twice.
+for _bin in \
+  "$HOME/.antigravity/antigravity/bin" \
+  "$HOME/.amp/bin" \
+  "$HOME/.maestro/bin" \
+  "$HOME/.lmstudio/bin"
+do
+  [ -d "$_bin" ] && export PATH="$_bin:$PATH"
+done
+unset _bin
 
 # bun completions
-[ -s "/Users/kirill/.bun/_bun" ] && source "/Users/kirill/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -105,10 +113,6 @@ export DA="Krot"
 export TIME_ZONE="Europe/Berlin"
 export PAI_SOURCE_APP="$DA"
 
-
-
-# Added by Antigravity
-export PATH="/Users/kirill/.antigravity/antigravity/bin:$PATH"
 
 
 # LifeOS statusline level (min | compact | mid | full)
@@ -133,24 +137,23 @@ lifeos-toggle() {
 pai-collapse() { lifeos-collapse; }
 pai-expand()   { lifeos-expand; }
 pai-toggle()   { lifeos-toggle; }
-export PATH=$PATH:$HOME/.maestro/bin
 
 
-source /Users/kirill/.daytona.completion_script.zsh
+[ -r "$HOME/.daytona.completion_script.zsh" ] && source "$HOME/.daytona.completion_script.zsh"
 
 # Added by PAI installer — make bun reachable for hook subprocesses
 export PATH="$HOME/.bun/bin:$PATH"
 
 # PAI alias
-alias pai='bun /Users/kirill/.claude/PAI/Tools/pai.ts'
+alias pai='bun $HOME/.claude/PAI/Tools/pai.ts'
 
 
 # Added by Antigravity CLI installer
-export PATH="/Users/kirill/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # ponytail (lazy-mode skill) default level
 export PONYTAIL_DEFAULT_MODE=full
 
 # Added by Antigravity IDE
-export PATH="/Users/kirill/.antigravity-ide/antigravity-ide/bin:$PATH"
-eval "$(direnv hook zsh)"
+[ -d "$HOME/.antigravity-ide" ] && export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
+have direnv && eval "$(direnv hook zsh)"
