@@ -1,3 +1,10 @@
+# BEGIN cogram-local-config kirill-dev-vm
+Host kirill-dev-vm dev-vm ssh-vm
+  HostName kirill-dev-vm.goat-opah.ts.net
+  User kirill
+  StrictHostKeyChecking accept-new
+  ServerAliveInterval 30
+# END cogram-local-config kirill-dev-vm
 Include /Users/kirill/.ssh/conductor_config
 
 # Added by OrbStack: 'orb' SSH host for Linux machines
