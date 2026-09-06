@@ -601,16 +601,6 @@
         "command": "cursorWordRight"
     },
     {
-        "key": "up",
-        "command": "cursorUp",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "up",
-        "command": "-cursorUp",
-        "when": "textInputFocus"
-    },
-    {
         "key": "ctrl+up",
         "command": "cursorUp",
         "when": "textInputFocus"
@@ -724,5 +714,44 @@
         "key": "ctrl+enter",
         "command": "-openReferenceToSide",
         "when": "listFocus && referenceSearchVisible && !inputFocus && !treeElementCanCollapse && !treeElementCanExpand && !treestickyScrollFocused"
+    },
+    {
+        "key": "shift+cmd+m",
+        "command": "-workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active"
+    },
+    {
+        "key": "shift+cmd+m",
+        "command": "errorLens.toggle"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-workbench.action.chat.startVoiceChat",
+        "when": "chatIsEnabled && hasSpeechProvider && inChatInput && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress || chatIsEnabled && hasSpeechProvider && inlineChatFocused && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-inlineChat.askInChat",
+        "when": "config.inlineChat.askInChat && editorFocus && inlineChatFileBelongsToChat && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || config.inlineChat.askInChat && editorFocus && inlineChatFileBelongsToChat && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || config.inlineChat.askInChat && editorFocus && inlineChatFileBelongsToChat && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-inlineChat.start",
+        "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat || editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat || editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookAgent && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookAgent && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookAgent && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookAgent && inlineChatHasNotebookInline && inlineChatPossible && !config.inlineChat.askInChat && !editorReadonly && !editorSimpleInput && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-settings.action.toggleAiSearch",
+        "when": "aiSettingResultsAvailable && inSettingsEditor"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-search.action.searchWithAI",
+        "when": "hasAIResultProviderKey && searchViewletFocus"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "-workbench.action.chat.openagent",
+        "when": "config.chat.agent.enabled && !chatSetupDisabledInWorkspace && !chatSetupHidden"
     }
 ]

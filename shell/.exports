@@ -59,6 +59,7 @@ fi
 
 # Homebrew:
 export HOMEBREW_NO_ANALYTICS=1  # disables statistics that brew collects
+export HOMEBREW_NO_AUTO_UPDATE=1  # autoupdates break and slow down things
 
 # Docker:
 export DOCKER_CLI_HINTS=false  # disable ads in CLI :(

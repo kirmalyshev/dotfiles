@@ -22,8 +22,8 @@ osascript -e 'tell application "System Preferences" to quit'
 # === General ===
 
 # Hide remaining battery time; show percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-defaults write com.apple.menuextra.battery ShowTime -string "NO"
+defaults write com.apple.menuextra.battery ShowPercent -string 'YES'
+defaults write com.apple.menuextra.battery ShowTime -string 'NO'
 
 # Disable dashboard:
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -35,7 +35,7 @@ sudo nvram SystemAudioVolume=%01
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 
 # Scrollbars visible when scrolling:
-defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
+defaults write NSGlobalDomain AppleShowScrollBars -string 'WhenScrolling'
 
 # Always use expanded save dialog:
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -138,7 +138,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 chflags nohidden ~/Library
 
 # When performing a search, search the current folder by default
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -212,8 +212,8 @@ defaults write com.apple.appstore InAppReviewEnabled -int 0
 # === Maccy ===
 
 # https://github.com/p0deje/Maccy
-defaults write org.p0deje.Maccy pasteByDefault true
-defaults write org.p0deje.Maccy historySize 20
+defaults write org.p0deje.Maccy pasteByDefault -bool false
+defaults write org.p0deje.Maccy historySize -int 20
 
 
 # Restarting apps:

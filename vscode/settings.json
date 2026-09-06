@@ -1,4 +1,4 @@
-{
+ {
   // Debug:
   "debug.allowBreakpointsEverywhere": true,
   "debug.javascript.codelens.npmScripts": "never",
@@ -30,7 +30,6 @@
   "editor.snippetSuggestions": "none",
   "editor.cursorSurroundingLines": 3,
   "editor.useTabStops": true,
-  "editor.formatOnPaste": false,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 80,
   "editor.hover.enabled": "off",
@@ -44,6 +43,7 @@
   "window.commandCenter": false,
   "workbench.activityBar.location": "hidden",
   "workbench.editor.tabActionCloseVisibility": false,
+  "workbench.editor.useModal": "off",
   "workbench.hover.delay": 10000, // ms, TODO: find way to turn this off
   "editor.scrollbar.vertical": "auto",
   "editor.scrollbar.horizontal": "hidden",
@@ -72,15 +72,17 @@
     "strings": false,
   },
   "editor.formatOnType": false,
+  "editor.formatOnPaste": false,
+  "editor.defaultFormatter": null,
+  "editor.autoIndent": "keep",
   "editor.inlineSuggest.enabled": false,
   "editor.suggest.localityBonus": true,
   "editor.lightbulb.enabled": "off",
   "editor.detectIndentation": false,
   "editor.guides.indentation": false,
   "editor.showUnused": false,
-  "editor.pasteAs.preferences": [
-    "text.plain",
-  ],
+  "editor.pasteAs.showPasteSelector": "never",
+  "editor.pasteAs.preferences": ["text.plain"],
   "chat.agent.enabled": false,
 
   // Search
@@ -179,6 +181,7 @@
   "git.decorations.enabled": true,
   "git.openRepositoryInParentFolders": "never",
   "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": false,
 
   "python.analysis.completeFunctionParens": false,
   "python.createEnvironment.trigger": "off",
@@ -195,12 +198,11 @@
   "python.experiments.enabled": false,
   "python.testing.autoTestDiscoverOnSaveEnabled": false,
 
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "typescript.suggest.autoImports": false,
-  "javascript.suggest.autoImports": false,
-  "javascript.updateImportsOnFileMove.enabled": "never",
-
   "C_Cpp.dimInactiveRegions": false,
+
+  // Error lens plugin:
+  "errorLens.scrollbarHackEnabled": true,
+  "errorLens.enabled": false,
 
   // Theme:
   "workbench.colorTheme": "pustota",
