@@ -13,6 +13,12 @@ Include /Users/kirill/.ssh/conductor_config
 Include ~/.orbstack/ssh/config
 
 Host *
+# macOS-only; without this line Linux OpenSSH rejects the whole file and
+# every ssh, git-over-ssh and scp exits 255 with "Bad configuration option".
+IgnoreUnknown UseKeychain
 UseKeychain yes
 AddKeysToAgent yes
 IdentityFile ~/.ssh/personal_ed25519
+# Keepalives, so a long agent session over SSH survives a NAT timeout.
+ServerAliveInterval 30
+ServerAliveCountMax 4
