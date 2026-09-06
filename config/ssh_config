@@ -1,3 +1,7 @@
+# Per-machine hosts, kept outside the repo. First, so a Host block there wins
+# over anything below; a missing file is ignored.
+Include ~/.ssh/config.local
+
 # BEGIN cogram-local-config kirill-dev-vm
 Host kirill-dev-vm dev-vm ssh-vm
   HostName kirill-dev-vm.goat-opah.ts.net
