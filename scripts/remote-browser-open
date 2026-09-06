@@ -1,0 +1,47 @@
+#!/bin/sh
+# One connection from the remote-browser tunnel: read a URL, open it here,
+# answer `ok`. launchd owns the socket — macos/LaunchAgents/
+# com.kirmalyshev.remote-browser.plist binds 127.0.0.1:18081 and runs this once
+# per connection, inetd-style, with the socket on stdin and stdout. The other
+# end is the xdg-open shim that ubuntu-local-config installs on a Linux box,
+# reached through `RemoteForward 127.0.0.1:18081 127.0.0.1:18081` on that box's
+# Host in ~/.ssh/config.local, which the ssh behind `herdr --remote` honours.
+#
+# Only a clean http(s) URL is opened. Whatever an agent on the far box sends
+# arrives here with the authority to open a browser, and nothing more.
+#
+#   scripts/remote-browser-open --test    # the checks below; opens nothing
+
+open_url() {
+  IFS= read -r url || return 1
+  case $url in
+    *[![:print:]]* | *[[:space:]]*) return 1 ;;
+    http://* | https://*) open "$url" && printf 'ok\n' ;;
+    *) return 1 ;;
+  esac
+}
+
+if [ "${1-}" = --test ]; then
+  set -eu
+  t=$(mktemp -d)
+  trap 'rm -rf "$t"' EXIT
+  # shellcheck disable=SC2016  # the $1 belongs to the fake `open` being written
+  printf '#!/bin/sh\nprintf "%%s\\n" "$1" >> "%s/opened"\n' "$t" > "$t/open"
+  chmod +x "$t/open"
+  PATH="$t:$PATH"
+  # check <line sent> <expected reply> <expected contents of opened>
+  check() {
+    reply=$(printf '%s\n' "$1" | "$0") || true
+    opened=$(cat "$t/opened" 2>/dev/null || true)
+    [ "$reply" = "$2" ] && [ "$opened" = "$3" ] \
+      || { echo "FAIL: '$1' -> reply '$reply', opened '$opened'" >&2; exit 1; }
+  }
+  check 'https://example.test/a?b=c#d' ok 'https://example.test/a?b=c#d'
+  check 'file:///etc/passwd' '' 'https://example.test/a?b=c#d'
+  check 'https://example.test/x y' '' 'https://example.test/a?b=c#d'
+  check 'open -a Calculator' '' 'https://example.test/a?b=c#d'
+  echo 'remote-browser-open: 4/4 OK'
+  exit 0
+fi
+
+open_url
