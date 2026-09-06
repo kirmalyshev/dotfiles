@@ -76,3 +76,6 @@ When an app moves in or out of that third category, edit `EXTRA` in
   Brewfile changes with `Brewfile:`.
 - Shell config lives in `config/`, never in `$HOME` directly. Anything you add
   there needs a matching link in `steps/terminal.yml`.
+
+`gh pr create` defaults its base to the parent repository, because this is a
+fork. Always pass `--repo kirmalyshev/dotfiles --base master`.
