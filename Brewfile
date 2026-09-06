@@ -270,7 +270,7 @@ cask "grammarly-desktop"
 cask "iterm2"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-# Knowledge base that works on top of a local folder of plain text Markdown files
+# Knowledge base on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
@@ -309,6 +309,7 @@ mas "Xcode", id: 497799835
 vscode "anthropic.claude-code"
 vscode "editorconfig.editorconfig"
 vscode "github.copilot-chat"
+vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
