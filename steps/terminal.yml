@@ -72,3 +72,21 @@
     ~/.skhdrc:
       path: config/skhdrc
       force: true
+
+    # Remote browser: links opened on a Linux box attached through
+    # `herdr --remote` open here. launchd reads the plist at login, or at the
+    # bootstrap below.
+    ~/Library/LaunchAgents/com.kirmalyshev.remote-browser.plist:
+      path: macos/LaunchAgents/com.kirmalyshev.remote-browser.plist
+      create: true
+
+# Load it now rather than at next login, and reload it after an edit.
+- shell:
+    - command: |
+        [ "$(uname)" = Darwin ] || exit 0
+        u="gui/$(id -u)"
+        launchctl bootout "$u/com.kirmalyshev.remote-browser" 2>/dev/null
+        launchctl bootstrap "$u" "$HOME/Library/LaunchAgents/com.kirmalyshev.remote-browser.plist"
+      description: Load the remote-browser listener
+      stdout: true
+      stderr: true

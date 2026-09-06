@@ -159,6 +159,33 @@ Here's the full list:
 2. `~/.shell_env_local` to store local shell config, like: usernames, passwords, tokens, `gpg` keys and so on
 
 
+## Remote browser
+
+Working on a Linux box through `herdr --remote`, a link opened there — `gh auth
+login`, a `claude` login, anything that calls `xdg-open` — opens in this Mac's
+browser instead of on the box's own desktop.
+
+The Mac half is here. `macos/LaunchAgents/com.kirmalyshev.remote-browser.plist`
+has launchd own `127.0.0.1:18081` and run `scripts/remote-browser-open` once per
+connection; the script opens a clean http(s) URL and answers `ok`. `./install`
+links the plist and loads it. The box's half is the `remote-browser` stage of
+[ubuntu-local-config](https://github.com/kirmalyshev-org/ubuntu-local-config):
+an `xdg-open` that sends the URL down the tunnel when the port answers, and
+falls back to the desktop when it does not.
+
+The tunnel is one block per box, in `~/.ssh/config.local` (per-machine, not in
+the repo):
+
+    Host <the name you give herdr --remote>
+      RemoteForward 127.0.0.1:18081 127.0.0.1:18081
+
+The ssh behind `herdr --remote` reads `~/.ssh/config` first, so the forward
+rides the same connection and lasts as long as the session. Tailscale SSH on the
+box accepts it from 1.44 on, alongside a session, which the herdr bridge is. To
+check while attached: `ssh <box> ss -ltn | grep 18081`. To check the listener's
+logic without opening anything: `scripts/remote-browser-open --test`.
+
+
 ## License
 
 [WTFPL](https://en.wikipedia.org/wiki/WTFPL): do the fuck you want. Enjoy!
