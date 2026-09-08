@@ -80,13 +80,21 @@
       path: macos/LaunchAgents/com.kirmalyshev.remote-browser.plist
       create: true
 
+    # The tunnel that feeds it, owned by launchd rather than by a herdr
+    # session, so a refused bind is retried instead of warned about.
+    ~/Library/LaunchAgents/com.kirmalyshev.remote-browser-tunnel.plist:
+      path: macos/LaunchAgents/com.kirmalyshev.remote-browser-tunnel.plist
+      create: true
+
 # Load it now rather than at next login, and reload it after an edit.
 - shell:
     - command: |
         [ "$(uname)" = Darwin ] || exit 0
         u="gui/$(id -u)"
-        launchctl bootout "$u/com.kirmalyshev.remote-browser" 2>/dev/null
-        launchctl bootstrap "$u" "$HOME/Library/LaunchAgents/com.kirmalyshev.remote-browser.plist"
-      description: Load the remote-browser listener
+        for a in remote-browser remote-browser-tunnel; do
+          launchctl bootout "$u/com.kirmalyshev.$a" 2>/dev/null
+          launchctl bootstrap "$u" "$HOME/Library/LaunchAgents/com.kirmalyshev.$a.plist"
+        done
+      description: Load the remote-browser listener and its tunnel
       stdout: true
       stderr: true
