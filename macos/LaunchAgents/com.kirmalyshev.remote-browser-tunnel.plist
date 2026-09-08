@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- The other half of com.kirmalyshev.remote-browser: the reverse tunnel that
+       carries a URL from the box to 127.0.0.1:18081 here. launchd owns it
+       instead of a herdr session, because a forward that rides a session dies
+       with it and a refused bind only warns: one clash at connect time left the
+       box with no tunnel for fifteen hours. ExitOnForwardFailure turns that
+       warning into an exit, KeepAlive retries it, and ControlPath=none keeps
+       this ssh off herdr's multiplexed master. See scripts/remote-browser-open
+       for the listener the tunnel feeds. -->
+  <key>Label</key>
+  <string>com.kirmalyshev.remote-browser-tunnel</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>-c</string>
+    <string>exec /usr/bin/ssh -N -o BatchMode=yes -o ControlPath=none -o ExitOnForwardFailure=yes -o ConnectTimeout=15 -o ServerAliveInterval=30 -o ServerAliveCountMax=4 -R 127.0.0.1:18081:127.0.0.1:18081 home-ubuntu >>"$HOME/Library/Logs/remote-browser-tunnel.log" 2>&amp;1</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <!-- Box asleep or Tailscale not up yet: retry every 30s, not in a hot loop. -->
+  <key>ThrottleInterval</key>
+  <integer>30</integer>
+</dict>
+</plist>

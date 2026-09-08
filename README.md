@@ -173,17 +173,29 @@ links the plist and loads it. The box's half is the `remote-browser` stage of
 an `xdg-open` that sends the URL down the tunnel when the port answers, and
 falls back to the desktop when it does not.
 
-The tunnel is one block per box, in `~/.ssh/config.local` (per-machine, not in
-the repo):
+The tunnel for the everyday box is a second agent,
+`macos/LaunchAgents/com.kirmalyshev.remote-browser-tunnel.plist`: one
+`ssh -N -R 127.0.0.1:18081:127.0.0.1:18081`, `KeepAlive` on, so a reboot, a
+sleeping box or a refused bind costs thirty seconds instead of the rest of the
+day. `ExitOnForwardFailure` is what makes that work — without it ssh only warns
+about a refused bind and then sits there, connected and useless, which is how
+the tunnel once stayed down for fifteen hours. Log:
+`~/Library/Logs/remote-browser-tunnel.log`.
 
-    Host <the name you give herdr --remote>
+Any other box carries its own forward on its own session, from
+`~/.ssh/config.local` (per-machine, not in the repo). The box the agent owns
+has to be excluded there, or the two race for the port:
+
+    Host * !home-ubuntu
       RemoteForward 127.0.0.1:18081 127.0.0.1:18081
 
-The ssh behind `herdr --remote` reads `~/.ssh/config` first, so the forward
+The ssh behind `herdr --remote` reads `~/.ssh/config` first, so that forward
 rides the same connection and lasts as long as the session. Tailscale SSH on the
-box accepts it from 1.44 on, alongside a session, which the herdr bridge is. To
-check while attached: `ssh <box> ss -ltn | grep 18081`. To check the listener's
-logic without opening anything: `scripts/remote-browser-open --test`.
+box accepts it from 1.44 on, alongside a session, which the herdr bridge is; it
+ignores one added later with `ssh -O forward`, so a session that lost the bind
+can only be reconnected, never repaired. To check: `ssh <box> ss -ltn | grep
+18081`. To check the listener's logic without opening anything:
+`scripts/remote-browser-open --test`.
 
 
 ## License
