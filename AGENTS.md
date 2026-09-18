@@ -8,7 +8,7 @@ Forked from [sobolevn/dotfiles](https://github.com/sobolevn/dotfiles).
 | Path | What it holds |
 |------|----------------|
 | `install` | Entry point. Syncs submodules, then runs each `steps/*.yml` through dotbot. |
-| `steps/` | dotbot configs: `terminal.yml` (symlinks), `dependencies.yml` (Brewfile), `vscode.yml`. |
+| `steps/` | dotbot configs: `terminal.yml` (symlinks), `dependencies.yml` (Brewfile, plus the tools with no formula), `vscode.yml`. |
 | `config/` | The dotfiles themselves. `steps/terminal.yml` symlinks them into `$HOME`. |
 | `Brewfile` | Every package, cask, App Store app and editor extension on the machine. |
 | `scripts/brew-dump` | Regenerates the Brewfile from the machine and opens a PR. |

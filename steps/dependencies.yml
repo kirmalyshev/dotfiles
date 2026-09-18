@@ -11,3 +11,17 @@
     # this is done because not everybody needs the same casks and apps,
     # but most of people would need the same formulas.
     include: ['tap', 'brew']
+
+# tu ("terminal-use") runs a program inside a headless virtual terminal, so an
+# agent can drive what a pipe cannot reach — htop, vim, mc, any ncurses
+# installer — by screenshotting the screen and sending keystrokes. No formula,
+# so it is not in the Brewfile: the vendor installer drops one static binary in
+# ~/.local/bin, which shell/.exports already puts on PATH. Installed once and
+# left alone, like the Brewfile above; `tu self update` upgrades it.
+- shell:
+    - command: |
+        [ -x "$HOME/.local/bin/tu" ] && exit 0
+        curl -fsSL https://raw.githubusercontent.com/flipbit03/terminal-use/main/install.sh | sh
+      description: Install tu (terminal-use)
+      stdout: true
+      stderr: true
