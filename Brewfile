@@ -145,6 +145,8 @@ brew "mdcat"
 brew "midnight-commander"
 # Minimalist GNU for Windows and GCC cross-compilers
 brew "mingw-w64"
+# Remote terminal application
+brew "mosh"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
 # Open-source, cross-platform JavaScript runtime environment
