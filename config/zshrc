@@ -42,7 +42,6 @@ plugins=(
   git
   gitfast
   gh
-  github
   golang
   helm
   history
@@ -157,3 +156,11 @@ export PONYTAIL_DEFAULT_MODE=full
 # Added by Antigravity IDE
 [ -d "$HOME/.antigravity-ide" ] && export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
 have direnv && eval "$(direnv hook zsh)"
+
+# PD-consult work repos use the contr-kirill-malyshev_pdgh GitHub account
+gh() {
+  case "$PWD/" in
+    "$HOME/Personal/projects/PD-consult/"*) GH_CONFIG_DIR="$HOME/.config/gh-pdgh" command gh "$@" ;;
+    *) command gh "$@" ;;
+  esac
+}

@@ -8,6 +8,10 @@ Host kirill-dev-vm dev-vm ssh-vm
   User kirill
   StrictHostKeyChecking accept-new
   ServerAliveInterval 30
+  # One connection, reused. `ssh -O exit dev-vm` closes a stale one.
+  ControlMaster auto
+  ControlPath ~/.ssh/cm-%C
+  ControlPersist 10m
 # END cogram-local-config kirill-dev-vm
 Include /Users/kirill/.ssh/conductor_config
 

@@ -68,3 +68,6 @@ export PATH="$HOME/.bun/bin:$PATH"
 # App Store Connect ids for scripts/asc.ts (eait repo); the .p8 lives in ~/.config/eait
 export EAIT__TOOLING__ASC_KEY_ID=9VC5UXHK4B
 export EAIT__TOOLING__ASC_ISSUER_ID=295582c3-be44-4e97-bbbc-206136280402
+
+# devin runs in yolo mode by default (principal, 2026-09-25)
+export DEVIN_PERMISSION_MODE=dangerous
